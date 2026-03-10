@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sovereign Mint
+
+[中文文档](./README_zh.md)
+
+AI-powered Web3 whitepaper and landing page generator with multi-model support, wallet authentication, and USDC payments on Base network.
+
+## Features
+
+- 🤖 **Multi-Model AI** - Choose from top AI models (Claude, GPT-4o, Gemini, Llama, Mistral)
+- 🔐 **Web3 Authentication** - Sign in with your wallet (MetaMask, WalletConnect, Coinbase, Rainbow)
+- 💰 **USDC Payments** - Pay with USDC on Base network
+- 📄 **PDF Export** - Download generated content as professional PDFs
+- 🌍 **Bilingual** - English and Chinese support with auto-detection
+- 📊 **Quota System** - Monthly generations with optional boost packs
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Database**: Drizzle ORM + MySQL (PlanetScale)
+- **AI Provider**: OpenRouter (multi-model)
+- **Web3**: Wagmi v2 + RainbowKit
+- **Payments**: USDC on Base
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+
+- pnpm
+- MySQL database (PlanetScale recommended)
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+# Database
+DATABASE_URL=mysql://...
+
+# Auth
+JWT_SECRET=your-jwt-secret
+
+# Web3
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your-project-id
+
+# AI
+OPENROUTER_API_KEY=your-openrouter-key
+
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+pnpm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Push database schema
+pnpm db:push
 
-## Learn More
+# Run development server
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pricing Model
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Plan | Price | Features |
+|------|-------|----------|
+| Free | $0 | 3 generations/month, free models only |
+| Unlock | $29 (one-time) | 30 generations/month, all premium models |
+| Boost Pack | $19 | +20 extra generations (never expires) |
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[MIT](./LICENSE)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Links
+
+- [X (Twitter)](https://x.com)
+- [GitHub](https://github.com/wangyuanchen/sovereign-mint)
+- [YouTube](https://youtube.com)
