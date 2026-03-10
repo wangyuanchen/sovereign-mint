@@ -1,0 +1,237 @@
+{
+  "common": {
+    "credits": "Credits",
+    "generate": "Generate",
+    "dashboard": "Dashboard",
+    "pricing": "Pricing",
+    "connectWallet": "Connect Wallet",
+    "unlimited": "Unlimited",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "download": "Download",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "view": "View",
+    "unlock": "Unlock",
+    "locked": "Locked",
+    "unlocked": "Unlocked"
+  },
+  "nav": {
+    "home": "Home",
+    "generate": "Generate",
+    "dashboard": "Dashboard",
+    "pricing": "Pricing"
+  },
+  "home": {
+    "badge": "Powered by Multi-Model AI",
+    "title1": "Generate",
+    "title2": "Web3 Whitepapers",
+    "title3": "& Landing Pages with AI",
+    "subtitle": "Create professional, investor-ready whitepapers and stunning landing pages for your crypto project in minutes. Pay with USDC, no subscriptions.",
+    "cta": "Start Generating",
+    "viewPricing": "View Pricing",
+    "noSubscription": "No subscription",
+    "payPerGeneration": "Pay per generation",
+    "usdcOnBase": "USDC on Base",
+    "features": {
+      "title": "Everything You Need",
+      "subtitle": "Professional-grade tools designed specifically for Web3 projects",
+      "ai": {
+        "title": "AI-Powered Generation",
+        "description": "Leverage top AI models to generate professional whitepapers and landing pages in minutes."
+      },
+      "web3": {
+        "title": "Web3 Native",
+        "description": "Connect with your wallet, pay with USDC on Base. No accounts, no passwords."
+      },
+      "language": {
+        "title": "Multi-Language Support",
+        "description": "Generate content in English, Chinese, or both for global reach."
+      },
+      "pdf": {
+        "title": "Export to PDF",
+        "description": "Download your whitepaper as a professionally formatted PDF document."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "From idea to whitepaper in four simple steps",
+      "step1": {
+        "title": "Connect Wallet",
+        "description": "Sign in with MetaMask or WalletConnect"
+      },
+      "step2": {
+        "title": "Fill Form",
+        "description": "Enter your project details and preferences"
+      },
+      "step3": {
+        "title": "Generate",
+        "description": "AI creates your whitepaper or landing page"
+      },
+      "step4": {
+        "title": "Download",
+        "description": "Get your content and export to PDF"
+      }
+    },
+    "cta2": {
+      "title": "Ready to Launch Your Project?",
+      "subtitle": "Generate your whitepaper or landing page today. No credit card, no subscription - just connect your wallet and pay with USDC.",
+      "button": "Get Started Now"
+    }
+  },
+  "generate": {
+    "title": "Generate Your Content",
+    "subtitle": "Fill out the form below to generate a professional whitepaper or landing page for your Web3 project.",
+    "connectWallet": {
+      "title": "Connect Your Wallet",
+      "subtitle": "Connect your wallet to start generating whitepapers and landing pages. We use your wallet address as your identity."
+    },
+    "steps": {
+      "basics": "Basics",
+      "token": "Token",
+      "team": "Team",
+      "roadmap": "Roadmap",
+      "output": "Output"
+    },
+    "form": {
+      "projectName": "Project Name",
+      "projectNamePlaceholder": "e.g., DeFi Protocol",
+      "tagline": "Tagline",
+      "taglinePlaceholder": "One sentence description",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe your project in 2-3 paragraphs...",
+      "problemStatement": "Problem Statement",
+      "problemStatementPlaceholder": "What problem does your project solve?",
+      "solution": "Solution",
+      "solutionPlaceholder": "How does your project solve this problem?",
+      "targetAudience": "Target Audience",
+      "targetAudiencePlaceholder": "e.g., DeFi users, NFT collectors",
+      "hasToken": "This project has a token",
+      "tokenName": "Token Name",
+      "tokenNamePlaceholder": "e.g., Uniswap",
+      "tokenSymbol": "Token Symbol",
+      "tokenSymbolPlaceholder": "e.g., UNI",
+      "totalSupply": "Total Supply",
+      "totalSupplyPlaceholder": "e.g., 1,000,000,000",
+      "tokenDistribution": "Token Distribution",
+      "tokenDistributionPlaceholder": "e.g., 40% community, 30% team, 20% investors, 10% treasury",
+      "tokenUtility": "Token Utility",
+      "tokenUtilityPlaceholder": "What can holders do with the token?",
+      "addMember": "Add Member",
+      "noTeamMembers": "No team members added yet.",
+      "memberName": "Name",
+      "memberRole": "Role",
+      "memberBackground": "Background",
+      "addPhase": "Add Phase",
+      "noRoadmapPhases": "No roadmap phases added yet.",
+      "quarter": "Quarter",
+      "selectQuarter": "Select quarter",
+      "year": "Year",
+      "selectYear": "Select year",
+      "milestones": "Milestones",
+      "milestonesPlaceholder": "Key milestones for this phase...",
+      "outputType": "Output Type",
+      "whitepaper": "Whitepaper (Markdown)",
+      "landingPage": "Landing Page (HTML)",
+      "model": "AI Model",
+      "freeModels": "Free Models",
+      "paidModels": "Premium Models",
+      "requiresUnlock": "Requires unlock",
+      "free": "FREE",
+      "language": "Language",
+      "english": "English",
+      "chinese": "Chinese",
+      "both": "Both (English & Chinese)",
+      "generating": "Generating...",
+      "generateButton": "Generate"
+    }
+  },
+  "result": {
+    "backToDashboard": "Back to Dashboard",
+    "generatedContent": "Generated Content",
+    "contentGenerating": "Content is being generated...",
+    "downloadPdf": "Download PDF",
+    "preparingPdf": "Preparing PDF...",
+    "unlockTitle": "Unlock Full Content",
+    "unlockSubtitle": "Pay with USDC to unlock the complete whitepaper and download as PDF.",
+    "unlockButton": "Unlock Now"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your generations and credits",
+    "creditsRemaining": "Credits Remaining",
+    "newGeneration": "New Generation",
+    "totalGenerations": "Total Generations",
+    "unlockedCount": "Unlocked",
+    "yourGenerations": "Your Generations",
+    "noGenerations": "No generations yet",
+    "noGenerationsSubtitle": "Create your first whitepaper or landing page",
+    "startGenerating": "Start Generating"
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Pay with USDC on Base network. No subscriptions, monthly quotas reset automatically.",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "buyBoost": "Buy Boost Pack",
+    "perMonth": "/month",
+    "oneTime": "one-time",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Get started for free",
+        "features": ["3 generations/month", "Free AI models only", "Whitepaper or Landing Page", "PDF export"]
+      },
+      "unlock": {
+        "name": "Pro Unlock",
+        "description": "Unlock premium features",
+        "features": ["30 generations/month", "All premium AI models", "Claude, GPT-4o, Gemini", "PDF export", "Lifetime access"]
+      },
+      "boost": {
+        "name": "Boost Pack",
+        "description": "Need more generations?",
+        "features": ["+20 extra generations", "Never expires", "Use with any model", "Stack multiple packs"]
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "What is USDC?",
+        "answer": "USDC is a stablecoin pegged to the US dollar. 1 USDC = $1 USD. We accept USDC on the Base network for fast and low-cost payments."
+      },
+      "q2": {
+        "question": "What is Base network?",
+        "answer": "Base is an Ethereum Layer 2 network built by Coinbase. It offers fast transactions and low fees while maintaining Ethereum's security."
+      },
+      "q3": {
+        "question": "Do credits expire?",
+        "answer": "No, your credits never expire. Use them whenever you're ready to generate new content."
+      },
+      "q4": {
+        "question": "Can I get a refund?",
+        "answer": "Since payments are processed on-chain, we cannot offer refunds. However, we're confident you'll love the results!"
+      }
+    }
+  },
+  "payment": {
+    "title": "Unlock Full Content",
+    "subtitle": "Pay with USDC on Base network to unlock your generated content",
+    "processing": "Processing...",
+    "payButton": "Pay {amount} USDC",
+    "notice": "Payment is processed on Base network. Make sure you have USDC in your wallet.",
+    "success": "Payment successful! Credits added.",
+    "txSubmitted": "Transaction submitted. Waiting for confirmation..."
+  },
+  "footer": {
+    "description": "Generate professional Web3 whitepapers and landing pages with AI. Launch your crypto project with confidence.",
+    "product": "Product",
+    "connect": "Connect",
+    "copyright": "© {year} Sovereign Mint. All rights reserved."
+  }
+}

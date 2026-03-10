@@ -1,0 +1,237 @@
+{
+  "common": {
+    "credits": "积分",
+    "generate": "生成",
+    "dashboard": "控制台",
+    "pricing": "价格",
+    "connectWallet": "连接钱包",
+    "unlimited": "无限",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "确认",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "download": "下载",
+    "copy": "复制",
+    "copied": "已复制！",
+    "view": "查看",
+    "unlock": "解锁",
+    "locked": "已锁定",
+    "unlocked": "已解锁"
+  },
+  "nav": {
+    "home": "首页",
+    "generate": "生成",
+    "dashboard": "控制台",
+    "pricing": "价格"
+  },
+  "home": {
+    "badge": "多模型 AI 驱动",
+    "title1": "AI 生成",
+    "title2": "Web3 白皮书",
+    "title3": "与落地页",
+    "subtitle": "几分钟内为您的加密项目创建专业的、投资者级别的白皮书和精美的落地页。使用 USDC 支付，无需订阅。",
+    "cta": "开始生成",
+    "viewPricing": "查看价格",
+    "noSubscription": "无需订阅",
+    "payPerGeneration": "按次付费",
+    "usdcOnBase": "Base 网络 USDC",
+    "features": {
+      "title": "您所需的一切",
+      "subtitle": "专为 Web3 项目设计的专业级工具",
+      "ai": {
+        "title": "AI 驱动生成",
+        "description": "利用顶级 AI 模型在几分钟内生成专业的白皮书和落地页。"
+      },
+      "web3": {
+        "title": "Web3 原生",
+        "description": "使用钱包连接，使用 USDC 支付。无需账户，无需密码。"
+      },
+      "language": {
+        "title": "多语言支持",
+        "description": "生成英文、中文或双语内容，触达全球用户。"
+      },
+      "pdf": {
+        "title": "导出 PDF",
+        "description": "将您的白皮书下载为专业格式的 PDF 文档。"
+      }
+    },
+    "howItWorks": {
+      "title": "使用流程",
+      "subtitle": "四个简单步骤，从想法到白皮书",
+      "step1": {
+        "title": "连接钱包",
+        "description": "使用 MetaMask 或 WalletConnect 登录"
+      },
+      "step2": {
+        "title": "填写表单",
+        "description": "输入您的项目详情和偏好设置"
+      },
+      "step3": {
+        "title": "AI 生成",
+        "description": "AI 为您创建白皮书或落地页"
+      },
+      "step4": {
+        "title": "下载",
+        "description": "获取您的内容并导出为 PDF"
+      }
+    },
+    "cta2": {
+      "title": "准备好启动您的项目了吗？",
+      "subtitle": "立即生成您的白皮书或落地页。无需信用卡，无需订阅 - 只需连接钱包并使用 USDC 支付。",
+      "button": "立即开始"
+    }
+  },
+  "generate": {
+    "title": "生成您的内容",
+    "subtitle": "填写下方表单，为您的 Web3 项目生成专业的白皮书或落地页。",
+    "connectWallet": {
+      "title": "连接您的钱包",
+      "subtitle": "连接钱包以开始生成白皮书和落地页。我们使用您的钱包地址作为身份标识。"
+    },
+    "steps": {
+      "basics": "基础信息",
+      "token": "代币",
+      "team": "团队",
+      "roadmap": "路线图",
+      "output": "输出"
+    },
+    "form": {
+      "projectName": "项目名称",
+      "projectNamePlaceholder": "例如：DeFi 协议",
+      "tagline": "标语",
+      "taglinePlaceholder": "一句话描述",
+      "description": "项目描述",
+      "descriptionPlaceholder": "用2-3段话描述您的项目...",
+      "problemStatement": "问题陈述",
+      "problemStatementPlaceholder": "您的项目解决什么问题？",
+      "solution": "解决方案",
+      "solutionPlaceholder": "您的项目如何解决这个问题？",
+      "targetAudience": "目标用户",
+      "targetAudiencePlaceholder": "例如：DeFi 用户、NFT 收藏家",
+      "hasToken": "该项目有代币",
+      "tokenName": "代币名称",
+      "tokenNamePlaceholder": "例如：Uniswap",
+      "tokenSymbol": "代币符号",
+      "tokenSymbolPlaceholder": "例如：UNI",
+      "totalSupply": "总供应量",
+      "totalSupplyPlaceholder": "例如：1,000,000,000",
+      "tokenDistribution": "代币分配",
+      "tokenDistributionPlaceholder": "例如：40% 社区，30% 团队，20% 投资者，10% 国库",
+      "tokenUtility": "代币用途",
+      "tokenUtilityPlaceholder": "持有者可以用代币做什么？",
+      "addMember": "添加成员",
+      "noTeamMembers": "暂未添加团队成员。",
+      "memberName": "姓名",
+      "memberRole": "角色",
+      "memberBackground": "背景",
+      "addPhase": "添加阶段",
+      "noRoadmapPhases": "暂未添加路线图阶段。",
+      "quarter": "季度",
+      "selectQuarter": "选择季度",
+      "year": "年份",
+      "selectYear": "选择年份",
+      "milestones": "里程碑",
+      "milestonesPlaceholder": "该阶段的关键里程碑...",
+      "outputType": "输出类型",
+      "whitepaper": "白皮书 (Markdown)",
+      "landingPage": "落地页 (HTML)",
+      "model": "AI 模型",
+      "freeModels": "免费模型",
+      "paidModels": "高级模型",
+      "requiresUnlock": "需要解锁",
+      "free": "免费",
+      "language": "语言",
+      "english": "英文",
+      "chinese": "中文",
+      "both": "双语（英文和中文）",
+      "generating": "生成中...",
+      "generateButton": "生成"
+    }
+  },
+  "result": {
+    "backToDashboard": "返回控制台",
+    "generatedContent": "生成的内容",
+    "contentGenerating": "内容正在生成中...",
+    "downloadPdf": "下载 PDF",
+    "preparingPdf": "正在准备 PDF...",
+    "unlockTitle": "解锁完整内容",
+    "unlockSubtitle": "使用 USDC 支付以解锁完整白皮书并下载 PDF。",
+    "unlockButton": "立即解锁"
+  },
+  "dashboard": {
+    "title": "控制台",
+    "subtitle": "管理您的生成记录和积分",
+    "creditsRemaining": "剩余积分",
+    "newGeneration": "新建生成",
+    "totalGenerations": "总生成数",
+    "unlockedCount": "已解锁",
+    "yourGenerations": "您的生成记录",
+    "noGenerations": "暂无生成记录",
+    "noGenerationsSubtitle": "创建您的第一个白皮书或落地页",
+    "startGenerating": "开始生成"
+  },
+  "pricing": {
+    "title": "简单透明的定价",
+    "subtitle": "在 Base 网络上使用 USDC 支付。无需订阅，月度配额自动重置。",
+    "mostPopular": "最受欢迎",
+    "getStarted": "开始使用",
+    "buyBoost": "购买加量包",
+    "perMonth": "/月",
+    "oneTime": "一次性",
+    "plans": {
+      "free": {
+        "name": "免费",
+        "description": "免费开始",
+        "features": ["3 次生成/月", "仅免费 AI 模型", "白皮书或落地页", "PDF 导出"]
+      },
+      "unlock": {
+        "name": "解锁专业版",
+        "description": "解锁高级功能",
+        "features": ["30 次生成/月", "所有高级 AI 模型", "Claude、GPT-4o、Gemini", "PDF 导出", "终身访问"]
+      },
+      "boost": {
+        "name": "加量包",
+        "description": "需要更多生成次数？",
+        "features": ["+20 额外生成次数", "永不过期", "可用于任何模型", "可叠加多个"]
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": {
+        "question": "什么是 USDC？",
+        "answer": "USDC 是一种与美元挂钩的稳定币。1 USDC = 1 美元。我们在 Base 网络上接受 USDC，交易快速且费用低廉。"
+      },
+      "q2": {
+        "question": "什么是 Base 网络？",
+        "answer": "Base 是由 Coinbase 构建的以太坊二层网络。它提供快速的交易和低廉的费用，同时保持以太坊的安全性。"
+      },
+      "q3": {
+        "question": "积分会过期吗？",
+        "answer": "不会，您的积分永不过期。随时可以使用它们生成新内容。"
+      },
+      "q4": {
+        "question": "可以退款吗？",
+        "answer": "由于支付在链上处理，我们无法提供退款。不过，我们相信您会喜欢我们的结果！"
+      }
+    }
+  },
+  "payment": {
+    "title": "解锁完整内容",
+    "subtitle": "在 Base 网络上使用 USDC 支付以解锁您生成的内容",
+    "processing": "处理中...",
+    "payButton": "支付 {amount} USDC",
+    "notice": "支付在 Base 网络上处理。请确保您的钱包中有 USDC。",
+    "success": "支付成功！积分已添加。",
+    "txSubmitted": "交易已提交。等待确认中..."
+  },
+  "footer": {
+    "description": "使用 AI 生成专业的 Web3 白皮书和落地页。自信地启动您的加密项目。",
+    "product": "产品",
+    "connect": "联系我们",
+    "copyright": "© {year} Sovereign Mint. 保留所有权利。"
+  }
+}
