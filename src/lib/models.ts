@@ -132,9 +132,9 @@ export const MONTHLY_QUOTA = {
 // Pricing
 export const PRICING = {
   // One-time purchase for paid model access (unlocks paid models + monthly quota)
-  UNLOCK_PAID_MODELS: 29, // $29 USDC
+  UNLOCK_PAID_MODELS: 29, // $29 USDT
   // Boost pack for additional generations
-  BOOST_PACK: 19, // $19 USDC for 20 extra generations
+  BOOST_PACK: 19, // $19 USDT for 20 extra generations
 } as const;
 
 export type PlanType = "unlock" | "boost";

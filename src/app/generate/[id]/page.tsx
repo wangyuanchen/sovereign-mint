@@ -193,7 +193,7 @@ export default function GenerationPage({
                         Unlock Full Content
                       </h3>
                       <p className="text-zinc-400 mb-6 max-w-md">
-                        Pay with USDC to unlock the complete whitepaper and
+                        Pay with USDT to unlock the complete whitepaper and
                         download as PDF.
                       </p>
                       <Button

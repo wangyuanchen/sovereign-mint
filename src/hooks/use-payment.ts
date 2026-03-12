@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { toast } from "sonner";
 import {
-  USDC_ADDRESS,
+  getPaymentTokenConfig,
   ERC20_ABI,
   getPriceInUnits,
   type PlanType,
@@ -23,14 +23,24 @@ export function usePayment() {
       hash: pendingTxHash ?? undefined,
     });
 
-  const pay = async (plan: PlanType, walletAddress: string): Promise<boolean> => {
+  const pay = async (
+    plan: PlanType,
+    walletAddress: string,
+    chainId: number
+  ): Promise<boolean> => {
     setIsPaying(true);
     try {
-      const amount = getPriceInUnits(plan);
+      const tokenConfig = getPaymentTokenConfig(chainId);
+      if (!tokenConfig) {
+        throw new Error("Unsupported payment chain");
+      }
 
-      // Send USDC transfer
+      const amount = getPriceInUnits(plan, tokenConfig.decimals);
+
+      // Send USDT transfer on selected chain.
       const txHash = await writeContractAsync({
-        address: USDC_ADDRESS,
+        chainId,
+        address: tokenConfig.address,
         abi: ERC20_ABI,
         functionName: "transfer",
         args: [MERCHANT_WALLET, amount],
@@ -48,6 +58,7 @@ export function usePayment() {
           txHash,
           walletAddress,
           plan,
+          chainId,
         }),
       });
 

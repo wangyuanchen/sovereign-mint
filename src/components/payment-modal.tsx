@@ -17,7 +17,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import { usePayment } from "@/hooks/use-payment";
-import { PRICING, BASE_CHAIN_ID, type PlanType } from "@/lib/contracts";
+import {
+  DEFAULT_PAYMENT_CHAIN_ID,
+  PAYMENT_TOKENS,
+  PRICING,
+  type SupportedChainId,
+  type PlanType,
+} from "@/lib/contracts";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 
@@ -35,6 +41,11 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
   const { switchChain } = useSwitchChain();
   const { pay, isPaying } = usePayment();
   const { user } = useAuth();
+  const [selectedChainId, setSelectedChainId] = useState<SupportedChainId>(
+    chainId && PAYMENT_TOKENS[chainId as SupportedChainId]
+      ? (chainId as SupportedChainId)
+      : DEFAULT_PAYMENT_CHAIN_ID
+  );
   const [selectedPlan, setSelectedPlan] = useState<PlanType>(
     user?.hasPaidAccess ? "boost" : "unlock"
   );
@@ -57,9 +68,10 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
   ];
 
   // Filter plans based on user status
-  const availablePlans = user?.hasPaidAccess 
-    ? PLANS.filter(p => p.id === "boost") 
+  const availablePlans = user?.hasPaidAccess
+    ? PLANS.filter((p) => p.id === "boost")
     : PLANS;
+  const supportedChains = Object.values(PAYMENT_TOKENS);
 
   const handlePayment = async () => {
     if (!address) {
@@ -67,17 +79,17 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
       return;
     }
 
-    // Switch to Base if needed
-    if (chainId !== BASE_CHAIN_ID) {
+    // Switch to selected payment chain if needed
+    if (chainId !== selectedChainId) {
       try {
-        await switchChain({ chainId: BASE_CHAIN_ID });
+        await switchChain({ chainId: selectedChainId });
       } catch {
-        toast.error("Please switch to Base network");
+        toast.error("Please switch to the selected network");
         return;
       }
     }
 
-    const success = await pay(selectedPlan, address);
+    const success = await pay(selectedPlan, address, selectedChainId);
     if (success) {
       onSuccess();
       onOpenChange(false);
@@ -94,7 +106,26 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
           </DialogDescription>
         </DialogHeader>
 
-        <div className={`grid grid-cols-1 ${availablePlans.length > 1 ? 'md:grid-cols-2' : ''} gap-4 mt-4`}>
+        <div className="mt-4 space-y-2">
+          <label className="text-sm text-zinc-400">Payment Network</label>
+          <select
+            value={selectedChainId}
+            onChange={(e) =>
+              setSelectedChainId(Number(e.target.value) as SupportedChainId)
+            }
+            className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm outline-none focus:border-blue-500"
+          >
+            {supportedChains.map((chain) => (
+              <option key={chain.chainId} value={chain.chainId}>
+                {chain.chainName} ({chain.symbol})
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div
+          className={`grid grid-cols-1 ${availablePlans.length > 1 ? "md:grid-cols-2" : ""} gap-4 mt-4`}
+        >
           {availablePlans.map((plan) => {
             const Icon = plan.icon;
             const isSelected = selectedPlan === plan.id;
@@ -124,7 +155,7 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
 
                 <div className="mb-4">
                   <span className="text-3xl font-bold">${price}</span>
-                  <span className="text-zinc-400 text-sm ml-1">USDC</span>
+                  <span className="text-zinc-400 text-sm ml-1">USDT</span>
                 </div>
 
                 <ul className="space-y-2">

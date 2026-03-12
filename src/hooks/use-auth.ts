@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useAccount, useSignMessage } from "wagmi";
 import { getMessage } from "@/lib/auth-shared";
 
@@ -17,6 +17,30 @@ export function useAuth() {
   const { signMessageAsync } = useSignMessage();
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  useEffect(() => {
+    const hydrateSession = async () => {
+      if (!address) {
+        setUser(null);
+        return;
+      }
+      try {
+        const response = await fetch("/api/auth/session");
+        if (!response.ok) return;
+
+        const data = await response.json();
+        if (!data.authenticated || !data.user) return;
+
+        if (data.user.walletAddress?.toLowerCase() === address.toLowerCase()) {
+          setUser(data.user);
+        }
+      } catch (error) {
+        console.error("Session hydrate error:", error);
+      }
+    };
+
+    hydrateSession();
+  }, [address]);
 
   const authenticate = useCallback(async () => {
     if (!address) return null;
@@ -43,7 +67,10 @@ export function useAuth() {
         }),
       });
 
-      if (!verifyResponse.ok) throw new Error("Authentication failed");
+      if (!verifyResponse.ok) {
+        const errorBody = await verifyResponse.json().catch(() => null);
+        throw new Error(errorBody?.error || "Authentication failed");
+      }
 
       const { user: authUser } = await verifyResponse.json();
       setUser(authUser);

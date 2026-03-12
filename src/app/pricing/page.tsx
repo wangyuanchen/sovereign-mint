@@ -90,7 +90,7 @@ export default function PricingPage() {
                   ) : (
                     <>
                       <span className="text-5xl font-bold">${plan.price}</span>
-                      <span className="text-zinc-400 ml-2">USDC</span>
+                      <span className="text-zinc-400 ml-2">USDT</span>
                     </>
                   )}
                   <div className="text-zinc-500 text-sm mt-1">{plan.priceLabel}</div>

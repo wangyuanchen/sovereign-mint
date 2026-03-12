@@ -1,5 +1,5 @@
 import { http, createConfig } from "wagmi";
-import { base, mainnet } from "wagmi/chains";
+import { arbitrum, base, mainnet, optimism, polygon } from "wagmi/chains";
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import {
   metaMaskWallet,
@@ -30,10 +30,13 @@ const connectors = connectorsForWallets(
 
 export const config = createConfig({
   connectors,
-  chains: [base, mainnet],
+  chains: [mainnet, optimism, polygon, arbitrum, base],
   transports: {
-    [base.id]: http(),
     [mainnet.id]: http(),
+    [optimism.id]: http(),
+    [polygon.id]: http(),
+    [arbitrum.id]: http(),
+    [base.id]: http(),
   },
   ssr: true,
 });

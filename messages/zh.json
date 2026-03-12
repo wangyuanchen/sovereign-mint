@@ -176,7 +176,7 @@
   },
   "pricing": {
     "title": "简单透明的定价",
-    "subtitle": "在 Base 网络上使用 USDC 支付。无需订阅，月度配额自动重置。",
+    "subtitle": "在常用链上使用 USDT 支付。无需订阅，月度配额自动重置。",
     "mostPopular": "最受欢迎",
     "getStarted": "开始使用",
     "buyBoost": "购买加量包",
@@ -221,10 +221,10 @@
   },
   "payment": {
     "title": "解锁完整内容",
-    "subtitle": "在 Base 网络上使用 USDC 支付以解锁您生成的内容",
+    "subtitle": "在您选择的网络上使用 USDT 支付以解锁您生成的内容",
     "processing": "处理中...",
     "payButton": "支付 {amount} USDC",
-    "notice": "支付在 Base 网络上处理。请确保您的钱包中有 USDC。",
+    "notice": "支付将在您选择的网络上处理。请确保您的钱包中有足够的 USDT。",
     "success": "支付成功！积分已添加。",
     "txSubmitted": "交易已提交。等待确认中..."
   },

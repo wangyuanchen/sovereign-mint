@@ -12,7 +12,10 @@ export async function GET() {
     authenticated: true,
     user: {
       walletAddress: session.walletAddress,
-      credits: session.credits,
+      hasPaidAccess: session.hasPaidAccess,
+      monthlyQuota: session.monthlyQuota,
+      usedThisMonth: session.usedThisMonth,
+      boostCredits: session.boostCredits,
     },
   });
 }

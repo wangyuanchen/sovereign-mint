@@ -1,24 +1,33 @@
 import { NextResponse } from "next/server";
-import { createPublicClient, http, formatUnits } from "viem";
-import { base } from "viem/chains";
+import { createPublicClient, decodeEventLog, formatUnits, http } from "viem";
+import { arbitrum, base, mainnet, optimism, polygon } from "viem/chains";
 import { db } from "@/db";
 import { users, payments } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import { USDC_ADDRESS, PRICING, type PlanType } from "@/lib/contracts";
+import {
+  ERC20_ABI,
+  getPaymentTokenConfig,
+  PRICING,
+  type PlanType,
+  type SupportedChainId,
+} from "@/lib/contracts";
 import { MONTHLY_QUOTA } from "@/lib/models";
 
-const publicClient = createPublicClient({
-  chain: base,
-  transport: http(),
-});
+const CLIENTS = {
+  1: createPublicClient({ chain: mainnet, transport: http() }),
+  10: createPublicClient({ chain: optimism, transport: http() }),
+  137: createPublicClient({ chain: polygon, transport: http() }),
+  42161: createPublicClient({ chain: arbitrum, transport: http() }),
+  8453: createPublicClient({ chain: base, transport: http() }),
+} as const;
 
 const MERCHANT_WALLET = process.env.NEXT_PUBLIC_MERCHANT_WALLET!.toLowerCase();
 
 export async function POST(request: Request) {
   try {
-    const { txHash, walletAddress, plan } = await request.json();
+    const { txHash, walletAddress, plan, chainId } = await request.json();
 
-    if (!txHash || !walletAddress || !plan) {
+    if (!txHash || !walletAddress || !plan || !chainId) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -29,6 +38,14 @@ export async function POST(request: Request) {
     if (!["unlock", "boost"].includes(plan)) {
       return NextResponse.json(
         { error: "Invalid plan type" },
+        { status: 400 }
+      );
+    }
+
+    const tokenConfig = getPaymentTokenConfig(Number(chainId));
+    if (!tokenConfig) {
+      return NextResponse.json(
+        { error: "Unsupported payment chain" },
         { status: 400 }
       );
     }
@@ -48,6 +65,7 @@ export async function POST(request: Request) {
     }
 
     // Get transaction receipt
+    const publicClient = CLIENTS[tokenConfig.chainId as SupportedChainId];
     const receipt = await publicClient.getTransactionReceipt({
       hash: txHash as `0x${string}`,
     });
@@ -59,25 +77,34 @@ export async function POST(request: Request) {
       );
     }
 
-    // Parse transfer event logs
-    const transferLog = receipt.logs.find((log) => {
-      return (
-        log.address.toLowerCase() === USDC_ADDRESS.toLowerCase() &&
-        log.topics[0] ===
-          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef" // Transfer event signature
-      );
-    });
+    // Parse Transfer logs from chain-specific USDT token contract.
+    const transferLog = receipt.logs.find(
+      (log) => log.address.toLowerCase() === tokenConfig.address.toLowerCase()
+    );
 
     if (!transferLog) {
       return NextResponse.json(
-        { error: "No USDC transfer found in transaction" },
+        { error: "No USDT transfer found in transaction" },
         { status: 400 }
       );
     }
 
-    // Decode transfer parameters
-    const to = `0x${transferLog.topics[2]?.slice(26)}`.toLowerCase();
-    const amount = BigInt(transferLog.data);
+    const decodedLog = decodeEventLog({
+      abi: ERC20_ABI,
+      data: transferLog.data,
+      topics: transferLog.topics,
+      eventName: "Transfer",
+    });
+
+    if (!decodedLog.args?.to || !decodedLog.args?.value) {
+      return NextResponse.json(
+        { error: "Failed to decode transfer event" },
+        { status: 400 }
+      );
+    }
+
+    const to = decodedLog.args.to.toLowerCase();
+    const amount = decodedLog.args.value;
 
     // Verify recipient is merchant wallet
     if (to !== MERCHANT_WALLET) {
@@ -88,7 +115,8 @@ export async function POST(request: Request) {
     }
 
     // Verify amount matches plan
-    const expectedAmount = BigInt(PRICING[plan as PlanType]) * BigInt(10 ** 6); // USDC has 6 decimals
+    const expectedAmount =
+      BigInt(PRICING[plan as PlanType]) * BigInt(10 ** tokenConfig.decimals);
     if (amount < expectedAmount) {
       return NextResponse.json(
         { error: "Insufficient payment amount" },
@@ -133,7 +161,9 @@ export async function POST(request: Request) {
       txHash,
       walletAddress: normalizedWallet,
       plan: plan as PlanType,
-      amountUsdc: formatUnits(amount, 6),
+      amountUsdt: formatUnits(amount, tokenConfig.decimals),
+      chainId: tokenConfig.chainId,
+      tokenAddress: tokenConfig.address.toLowerCase(),
     });
 
     // Get updated user

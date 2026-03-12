@@ -1,13 +1,16 @@
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
 import { nanoid } from "nanoid";
+import { createHmac, timingSafeEqual } from "crypto";
 import { db } from "@/db";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { MONTHLY_QUOTA } from "@/lib/models";
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET!);
+const HMAC_KEY = process.env.JWT_SECRET!;
 const COOKIE_NAME = "sovereign-mint-session";
+const NONCE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 export interface Session {
   walletAddress: string;
@@ -17,31 +20,45 @@ export interface Session {
   boostCredits: number;
 }
 
-// In-memory nonce store (in production, use Redis or similar)
-const nonceStore = new Map<string, { nonce: string; expiresAt: number }>();
+// Stateless HMAC-signed nonce — no server-side storage needed.
+// Format: {randomId}.{timestampMs}.{hmacHex}
 
-export function generateNonce(): string {
-  const nonce = nanoid(32);
-  return nonce;
+function hmacSign(data: string): string {
+  return createHmac("sha256", HMAC_KEY).update(data).digest("hex");
 }
 
-export function storeNonce(walletAddress: string, nonce: string): void {
-  nonceStore.set(walletAddress.toLowerCase(), {
-    nonce,
-    expiresAt: Date.now() + 5 * 60 * 1000, // 5 minutes
-  });
+function noncePayload(
+  randomId: string,
+  timestamp: string,
+  walletAddress: string
+): string {
+  return `${randomId}:${timestamp}:${walletAddress.toLowerCase()}`;
+}
+
+export function generateNonce(walletAddress: string): string {
+  const randomId = nanoid(32);
+  const timestamp = Date.now().toString();
+  const mac = hmacSign(noncePayload(randomId, timestamp, walletAddress));
+  return `${randomId}.${timestamp}.${mac}`;
 }
 
 export function verifyNonce(walletAddress: string, nonce: string): boolean {
-  const stored = nonceStore.get(walletAddress.toLowerCase());
-  if (!stored) return false;
-  if (Date.now() > stored.expiresAt) {
-    nonceStore.delete(walletAddress.toLowerCase());
+  const parts = nonce.split(".");
+  if (parts.length !== 3) return false;
+
+  const [randomId, timestamp, mac] = parts;
+  if (!randomId || !timestamp || !mac) return false;
+
+  const ts = Number(timestamp);
+  if (Number.isNaN(ts)) return false;
+  if (Date.now() - ts > NONCE_TTL_MS) return false;
+
+  const expected = hmacSign(noncePayload(randomId, timestamp, walletAddress));
+  try {
+    return timingSafeEqual(Buffer.from(mac, "hex"), Buffer.from(expected, "hex"));
+  } catch {
     return false;
   }
-  if (stored.nonce !== nonce) return false;
-  nonceStore.delete(walletAddress.toLowerCase());
-  return true;
 }
 
 export async function createSession(walletAddress: string): Promise<string> {

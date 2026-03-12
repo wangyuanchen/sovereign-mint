@@ -176,7 +176,7 @@
   },
   "pricing": {
     "title": "Simple, Transparent Pricing",
-    "subtitle": "Pay with USDC on Base network. No subscriptions, monthly quotas reset automatically.",
+    "subtitle": "Pay with USDT on popular networks. No subscriptions, monthly quotas reset automatically.",
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
     "buyBoost": "Buy Boost Pack",
@@ -221,10 +221,10 @@
   },
   "payment": {
     "title": "Unlock Full Content",
-    "subtitle": "Pay with USDC on Base network to unlock your generated content",
+    "subtitle": "Pay with USDT on your selected network to unlock your generated content",
     "processing": "Processing...",
     "payButton": "Pay {amount} USDC",
-    "notice": "Payment is processed on Base network. Make sure you have USDC in your wallet.",
+    "notice": "Payment is processed on the network you selected. Make sure you have enough USDT in your wallet.",
     "success": "Payment successful! Credits added.",
     "txSubmitted": "Transaction submitted. Waiting for confirmation..."
   },
