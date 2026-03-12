@@ -54,7 +54,9 @@ export async function GET(
       })
     );
 
-    return new NextResponse(pdfBuffer, {
+    const pdfBytes = new Uint8Array(pdfBuffer);
+
+    return new NextResponse(pdfBytes, {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${generation.projectName.replace(/\s+/g, "_")}_whitepaper.pdf"`,

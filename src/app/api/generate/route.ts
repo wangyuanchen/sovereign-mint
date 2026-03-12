@@ -30,6 +30,7 @@ async function checkAndResetQuota(walletAddress: string) {
   // Reset quota on the 1st of each month or if never set
   if (!resetDate || today >= resetDate) {
     const nextReset = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    const nextResetDate = nextReset.toISOString().slice(0, 10);
     const newQuota = user.hasPaidAccess
       ? MONTHLY_QUOTA.PAID_GENERATIONS
       : MONTHLY_QUOTA.FREE_GENERATIONS;
@@ -39,7 +40,7 @@ async function checkAndResetQuota(walletAddress: string) {
       .set({
         usedThisMonth: 0,
         monthlyQuota: newQuota,
-        quotaResetDate: nextReset,
+        quotaResetDate: nextResetDate,
       })
       .where(eq(users.walletAddress, walletAddress));
 

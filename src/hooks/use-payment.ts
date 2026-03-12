@@ -8,6 +8,7 @@ import {
   ERC20_ABI,
   getPriceInUnits,
   type PlanType,
+  type SupportedChainId,
 } from "@/lib/contracts";
 
 const MERCHANT_WALLET = process.env.NEXT_PUBLIC_MERCHANT_WALLET as `0x${string}`;
@@ -26,7 +27,7 @@ export function usePayment() {
   const pay = async (
     plan: PlanType,
     walletAddress: string,
-    chainId: number
+    chainId: SupportedChainId
   ): Promise<boolean> => {
     setIsPaying(true);
     try {
@@ -39,7 +40,7 @@ export function usePayment() {
 
       // Send USDT transfer on selected chain.
       const txHash = await writeContractAsync({
-        chainId,
+        chainId: tokenConfig.chainId,
         address: tokenConfig.address,
         abi: ERC20_ABI,
         functionName: "transfer",

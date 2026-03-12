@@ -37,7 +37,7 @@ export const generations = pgTable("generations", {
   projectName: varchar("project_name", { length: 255 }).notNull(),
   inputData: jsonb("input_data").notNull(),
   outputMarkdown: text("output_markdown"),
-  outputType: outputTypeEnum.notNull(),
+  outputType: outputTypeEnum("output_type").notNull(),
   modelUsed: varchar("model_used", { length: 100 }), // Track which model was used
   isUnlocked: boolean("is_unlocked").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
@@ -50,7 +50,7 @@ export const payments = pgTable("payments", {
   walletAddress: varchar("wallet_address", { length: 42 })
     .notNull()
     .references(() => users.walletAddress),
-  plan: planEnum.notNull(),
+  plan: planEnum("plan").notNull(),
   amountUsdt: decimal("amount_usdt", { precision: 18, scale: 6 }).notNull(),
   chainId: integer("chain_id").notNull(),
   tokenAddress: varchar("token_address", { length: 42 }).notNull(),

@@ -60,8 +60,10 @@ function parseWalletSignature(
     // Bit 255 of yParityAndS encodes yParity (v = 27 + yParity).
     const r = `0x${hexBody.slice(0, 64)}` as `0x${string}`;
     const yParityAndS = BigInt(`0x${hexBody.slice(64, 128)}`);
-    const yParity = Number((yParityAndS >> 255n) & 1n);
-    const s = yParityAndS & ((1n << 255n) - 1n);
+    const bit255 = BigInt(255);
+    const one = BigInt(1);
+    const yParity = Number((yParityAndS >> bit255) & one);
+    const s = yParityAndS & ((one << bit255) - one);
     return {
       r,
       s: `0x${s.toString(16).padStart(64, "0")}` as `0x${string}`,

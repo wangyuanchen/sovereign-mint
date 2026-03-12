@@ -127,13 +127,14 @@ export async function getOrCreateUser(walletAddress: string) {
     // Set quota reset date to next month's 1st
     const now = new Date();
     const nextReset = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const nextResetDate = nextReset.toISOString().slice(0, 10);
     
     await db.insert(users).values({
       walletAddress: normalizedAddress,
       hasPaidAccess: false,
       monthlyQuota: MONTHLY_QUOTA.FREE_GENERATIONS,
       usedThisMonth: 0,
-      quotaResetDate: nextReset,
+      quotaResetDate: nextResetDate,
       boostCredits: 0,
     });
     
