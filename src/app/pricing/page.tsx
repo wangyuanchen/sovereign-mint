@@ -67,14 +67,14 @@ export default function PricingPage() {
           return (
             <Card
               key={plan.id}
-              className={`relative bg-zinc-900 border-2 ${
+              className={`relative overflow-visible bg-zinc-900 border-2 ${
                 plan.popular
                   ? "border-blue-500 shadow-lg shadow-blue-500/20"
                   : "border-zinc-800"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-500 text-sm px-4 py-1 rounded-full font-medium">
+                <div className="absolute z-10 -top-4 left-1/2 -translate-x-1/2 bg-blue-500 text-sm px-4 py-1 rounded-full font-medium whitespace-nowrap">
                   {t("mostPopular")}
                 </div>
               )}

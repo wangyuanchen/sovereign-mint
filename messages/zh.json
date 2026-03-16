@@ -33,12 +33,12 @@
     "title1": "AI 生成",
     "title2": "Web3 白皮书",
     "title3": "与落地页",
-    "subtitle": "几分钟内为您的加密项目创建专业的、投资者级别的白皮书和精美的落地页。使用 USDC 支付，无需订阅。",
+    "subtitle": "几分钟内为您的加密项目创建专业的、投资者级别的白皮书和精美的落地页。使用 USDT 支付，无需订阅。",
     "cta": "开始生成",
     "viewPricing": "查看价格",
     "noSubscription": "无需订阅",
     "payPerGeneration": "按次付费",
-    "usdcOnBase": "Base 网络 USDC",
+    "usdcOnBase": "Base 网络 USDT",
     "features": {
       "title": "您所需的一切",
       "subtitle": "专为 Web3 项目设计的专业级工具",
@@ -48,7 +48,7 @@
       },
       "web3": {
         "title": "Web3 原生",
-        "description": "使用钱包连接，使用 USDC 支付。无需账户，无需密码。"
+        "description": "使用钱包连接，使用 USDT 支付。无需账户，无需密码。"
       },
       "language": {
         "title": "多语言支持",
@@ -64,7 +64,7 @@
       "subtitle": "四个简单步骤，从想法到白皮书",
       "step1": {
         "title": "连接钱包",
-        "description": "使用 MetaMask 或 WalletConnect 登录"
+        "description": "使用 MetaMask 登录"
       },
       "step2": {
         "title": "填写表单",
@@ -81,7 +81,7 @@
     },
     "cta2": {
       "title": "准备好启动您的项目了吗？",
-      "subtitle": "立即生成您的白皮书或落地页。无需信用卡，无需订阅 - 只需连接钱包并使用 USDC 支付。",
+      "subtitle": "立即生成您的白皮书或落地页。无需信用卡，无需订阅 - 只需连接钱包并使用 USDT 支付。",
       "button": "立即开始"
     }
   },
@@ -159,7 +159,7 @@
     "downloadPdf": "下载 PDF",
     "preparingPdf": "正在准备 PDF...",
     "unlockTitle": "解锁完整内容",
-    "unlockSubtitle": "使用 USDC 支付以解锁完整白皮书并下载 PDF。",
+    "unlockSubtitle": "使用 USDT 支付以解锁完整白皮书并下载 PDF。",
     "unlockButton": "立即解锁"
   },
   "dashboard": {
@@ -202,8 +202,8 @@
     "faq": {
       "title": "常见问题",
       "q1": {
-        "question": "什么是 USDC？",
-        "answer": "USDC 是一种与美元挂钩的稳定币。1 USDC = 1 美元。我们在 Base 网络上接受 USDC，交易快速且费用低廉。"
+        "question": "什么是 USDT？",
+        "answer": "USDT 是一种与美元挂钩的稳定币。1 USDT 目标锚定 1 美元。我们在主流 EVM 网络上接受 USDT 支付，交易快速且费用低廉。"
       },
       "q2": {
         "question": "什么是 Base 网络？",
@@ -223,7 +223,7 @@
     "title": "解锁完整内容",
     "subtitle": "在您选择的网络上使用 USDT 支付以解锁您生成的内容",
     "processing": "处理中...",
-    "payButton": "支付 {amount} USDC",
+    "payButton": "支付 {amount} USDT",
     "notice": "支付将在您选择的网络上处理。请确保您的钱包中有足够的 USDT。",
     "success": "支付成功！积分已添加。",
     "txSubmitted": "交易已提交。等待确认中..."

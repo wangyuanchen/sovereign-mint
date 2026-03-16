@@ -1,25 +1,15 @@
 import { http, createConfig } from "wagmi";
 import { arbitrum, base, mainnet, optimism, polygon } from "wagmi/chains";
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
-import {
-  metaMaskWallet,
-  walletConnectWallet,
-  coinbaseWallet,
-  rainbowWallet,
-} from "@rainbow-me/rainbowkit/wallets";
+import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
 
 const projectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "demo-project-id";
 
 const connectors = connectorsForWallets(
   [
     {
-      groupName: "Popular",
-      wallets: [
-        metaMaskWallet,
-        walletConnectWallet,
-        coinbaseWallet,
-        rainbowWallet,
-      ],
+      groupName: "MetaMask",
+      wallets: [metaMaskWallet],
     },
   ],
   {

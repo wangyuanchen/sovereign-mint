@@ -136,14 +136,14 @@ export function PaymentModal({ open, onOpenChange, onSuccess }: PaymentModalProp
                 key={plan.id}
                 onClick={() => setSelectedPlan(plan.id)}
                 className={cn(
-                  "relative p-4 cursor-pointer transition-all border-2",
+                  "relative overflow-visible p-4 cursor-pointer transition-all border-2",
                   isSelected
                     ? "border-blue-500 bg-blue-500/10"
                     : "border-zinc-700 bg-zinc-800/50 hover:border-zinc-600"
                 )}
               >
                 {plan.popular && (
-                  <div className="absolute -top-2 -right-2 bg-blue-500 text-xs px-2 py-0.5 rounded-full font-medium">
+                  <div className="absolute z-10 -top-2 -right-2 bg-blue-500 text-xs px-2 py-0.5 rounded-full font-medium whitespace-nowrap">
                     {tPricing("mostPopular")}
                   </div>
                 )}

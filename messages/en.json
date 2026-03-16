@@ -33,12 +33,12 @@
     "title1": "Generate",
     "title2": "Web3 Whitepapers",
     "title3": "& Landing Pages with AI",
-    "subtitle": "Create professional, investor-ready whitepapers and stunning landing pages for your crypto project in minutes. Pay with USDC, no subscriptions.",
+    "subtitle": "Create professional, investor-ready whitepapers and stunning landing pages for your crypto project in minutes. Pay with USDT, no subscriptions.",
     "cta": "Start Generating",
     "viewPricing": "View Pricing",
     "noSubscription": "No subscription",
     "payPerGeneration": "Pay per generation",
-    "usdcOnBase": "USDC on Base",
+    "usdcOnBase": "USDT on Base",
     "features": {
       "title": "Everything You Need",
       "subtitle": "Professional-grade tools designed specifically for Web3 projects",
@@ -48,7 +48,7 @@
       },
       "web3": {
         "title": "Web3 Native",
-        "description": "Connect with your wallet, pay with USDC on Base. No accounts, no passwords."
+        "description": "Connect with your wallet, pay with USDT on Base. No accounts, no passwords."
       },
       "language": {
         "title": "Multi-Language Support",
@@ -64,7 +64,7 @@
       "subtitle": "From idea to whitepaper in four simple steps",
       "step1": {
         "title": "Connect Wallet",
-        "description": "Sign in with MetaMask or WalletConnect"
+        "description": "Sign in with MetaMask"
       },
       "step2": {
         "title": "Fill Form",
@@ -81,7 +81,7 @@
     },
     "cta2": {
       "title": "Ready to Launch Your Project?",
-      "subtitle": "Generate your whitepaper or landing page today. No credit card, no subscription - just connect your wallet and pay with USDC.",
+      "subtitle": "Generate your whitepaper or landing page today. No credit card, no subscription - just connect your wallet and pay with USDT.",
       "button": "Get Started Now"
     }
   },
@@ -159,7 +159,7 @@
     "downloadPdf": "Download PDF",
     "preparingPdf": "Preparing PDF...",
     "unlockTitle": "Unlock Full Content",
-    "unlockSubtitle": "Pay with USDC to unlock the complete whitepaper and download as PDF.",
+    "unlockSubtitle": "Pay with USDT to unlock the complete whitepaper and download as PDF.",
     "unlockButton": "Unlock Now"
   },
   "dashboard": {
@@ -202,8 +202,8 @@
     "faq": {
       "title": "Frequently Asked Questions",
       "q1": {
-        "question": "What is USDC?",
-        "answer": "USDC is a stablecoin pegged to the US dollar. 1 USDC = $1 USD. We accept USDC on the Base network for fast and low-cost payments."
+        "question": "What is USDT?",
+        "answer": "USDT is a stablecoin pegged to the US dollar. 1 USDT is designed to track $1 USD. We accept USDT on popular EVM networks for fast and low-cost payments."
       },
       "q2": {
         "question": "What is Base network?",
@@ -223,7 +223,7 @@
     "title": "Unlock Full Content",
     "subtitle": "Pay with USDT on your selected network to unlock your generated content",
     "processing": "Processing...",
-    "payButton": "Pay {amount} USDC",
+    "payButton": "Pay {amount} USDT",
     "notice": "Payment is processed on the network you selected. Make sure you have enough USDT in your wallet.",
     "success": "Payment successful! Credits added.",
     "txSubmitted": "Transaction submitted. Waiting for confirmation..."

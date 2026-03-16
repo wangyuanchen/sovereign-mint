@@ -7,7 +7,7 @@ AI-powered Web3 whitepaper and landing page generator with multi-model support, 
 ## Features
 
 - 🤖 **Multi-Model AI** - Choose from top AI models (Claude, GPT-4o, Gemini, Llama, Mistral)
-- 🔐 **Web3 Authentication** - Sign in with your wallet (MetaMask, WalletConnect, Coinbase, Rainbow)
+- 🔐 **Web3 Authentication** - Sign in with MetaMask (currently supported wallet)
 - 💰 **USDT Payments** - Pay with USDT on popular EVM chains
 - 📄 **PDF Export** - Download generated content as professional PDFs
 - 🌍 **Bilingual** - English and Chinese support with auto-detection
