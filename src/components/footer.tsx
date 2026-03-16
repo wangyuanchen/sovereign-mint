@@ -47,7 +47,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">{t("connect")}</h4>
             <div className="flex gap-4">
               <a
-                href="https://x.com"
+                href="https://x.com/Lyuansen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -55,7 +55,7 @@ export function Footer() {
                 <span className="text-lg font-bold">𝕏</span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/wangyuanchen/sovereign-mint"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -63,7 +63,7 @@ export function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@Lyuansen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
